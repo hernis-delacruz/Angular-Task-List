@@ -1,0 +1,14 @@
+.narrow {
+    width: 2cm; }
+
+.done-true {
+    text-decoration: line-through;
+    color: green; }
+
+body {
+    background-color: lightgrey; }
+
+#complete {
+    color: green;
+}
+

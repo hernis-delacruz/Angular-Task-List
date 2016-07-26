@@ -1,0 +1,49 @@
+<h1>Task list</h1>
+<div class="row">
+    <div class="col-md-8">
+        <table  class="table table-hover">
+            <tr>
+                <th class="narrow" id = "complete">Complete</th>
+                <th ng-click="sort('title', false)">
+                    Task
+                    <span ng-show="sortField=='title'" class="glyphicon glyphicon-sort-by-alphabet"></span>
+                </th>
+                <th ng-click="sort('priority', false)">
+                    Priority
+                    <span ng-show="sortField=='priority'" class="glyphicon glyphicon-sort-by-alphabet"></span>
+                </th>
+                <th ng-click="sort('deadline', false)">
+                    Due Date
+                    <span ng-show="sortField=='deadline'" class="glyphicon glyphicon-sort-by-attributes"></span>
+                </th>
+                <th></th>
+            </tr>
+
+            <tr ng-repeat="task in taskList">
+                <td>  <input ng-model="task.done" type="checkbox"></td>
+                <td><span class="done-{{task.done}}">{{task.title}}</span></td>
+                <td><span class="done-{{task.done}}">{{task.priority}}</span></td>
+                <td><span class="done-{{task.done}}">{{task.deadline}}</span></td>
+                <td><span class="glyphicon glyphicon-pencil" ng-click="editMe(task)" aria-hidden="true"></span>
+                    <span class="glyphicon glyphicon-remove " ng-click="removeMe(task)" aria-hidden="true"></span>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<form>
+    <input type="text" id = "task" placeholder="New task"
+           ng-model="task">
+
+    <select ng-model="choice" id="mylist">
+        <option value="A">A</option>
+        <option value="B">B</option>
+        <option value="C">C</option>
+    </select>
+
+
+    <input id = "deadline" type="date" ng-model="deadline">
+
+    <input type="button" value="Add" ng-click="addTask()">
+</form>
